@@ -22,13 +22,18 @@ public class MainActivity extends AppCompatActivity {
         AppCenter.start(getApplication(), "04ef84bc-42e9-4860-b7c1-9ee34ff5b943",
                 Analytics.class, Crashes.class);
 
-        Crashes.setEnabled(true);
 
         btn = (Button) findViewById(R.id.button);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                Crashes.isEnabled();
+
+                Crashes.setEnabled(true);
+
                 Crashes.generateTestCrash();
             }
         });
