@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.microsoft.appcenter.AppCenter;
 import com.microsoft.appcenter.analytics.Analytics;
 import com.microsoft.appcenter.crashes.Crashes;
+import com.microsoft.appcenter.distribute.Distribute;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         AppCenter.start(getApplication(), "04ef84bc-42e9-4860-b7c1-9ee34ff5b943",
-                Analytics.class, Crashes.class);
+                Analytics.class, Crashes.class, Distribute.class);
+
 
 
         btn = (Button) findViewById(R.id.button);
