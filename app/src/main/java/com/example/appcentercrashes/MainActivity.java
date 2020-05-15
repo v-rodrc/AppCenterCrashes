@@ -12,6 +12,8 @@ import com.microsoft.appcenter.analytics.Analytics;
 import com.microsoft.appcenter.crashes.Crashes;
 import com.microsoft.appcenter.distribute.Distribute;
 
+import java.util.EmptyStackException;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,7 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
                 Crashes.setEnabled(true);
 
-                Crashes.generateTestCrash();
+                //Crashes.generateTestCrash();
+
+                throw new EmptyStackException();
             }
         });
     }
