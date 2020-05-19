@@ -1,7 +1,7 @@
 if [ -z "$VERSION_NAME" ]
 			then
 
-			echo "You need define the VERSION_NAME variable in App Center"
+			echo "You need define add VERSION_NAME variable in App Center build settings portal under environment variables"
 
 			exit
 
