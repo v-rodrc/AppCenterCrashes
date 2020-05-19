@@ -10,8 +10,6 @@ if [ -z "$VERSION_NAME" ]
 
 			ANDROID_MANIFEST_FILE=$APPCENTER_SOURCE_DIRECTORY/Droid/Properties/AndroidManifest.xml
 
-			INFO_PLIST_FILE=$APPCENTER_SOURCE_DIRECTORY/iOS/Info.plist
-
 			if [ -e "$ANDROID_MANIFEST_FILE" ]
 
 			then
