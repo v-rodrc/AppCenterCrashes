@@ -1,26 +1,27 @@
-if [ -z "$VERSION_NAME" ]
-			then
+if [ -z "$VERSION_CODE" ]
+then
+	echo "To use this script, define VERSION_CODE in App Center build settings portal under environment variables"
+	exit
+fi
 
-			echo "You need define add VERSION_NAME variable in App Center build settings portal under environment variables"
+ANDROID_BUILD_GRADLE=$APPCENTER_SOURCE_DIRECTORY/app/build.gradle
 
-			exit
+echo "$APPCENTER_SOURCE_DIRECTORY"
 
-			fi
+if [ -e "$ANDROID_BUILD_GRADLE" ]
+then
+	echo "version code:" $VERSION_CODE
+	cat $ANDROID_BUILD_GRADLE
+	echo "Updating version name to $VERSION_NAME in AndroidManifest.xml"
 
-			ANDROID_BUILD_GRADLE=$APPCENTER_SOURCE_DIRECTORY/Build.gradle
+	# sed command is stream editor,
+	#  i\ subcommands can continue onto more than one line, provided all lines but the last end with a
+	#  \ (backslash) to quote the new-line character.
+	sed -i '' 's/versionCode "[0-9.]*"/versionCode "'$VERSION_CODE'"/' $ANDROID_BUILD_GRADLE
+	echo "File content:"
+	cat $ANDROID_BUILD_GRADLE
 
-			if [ -e "$ANDROID_BUILD_GRADLE" ]
-
-			then
-
-			echo "Updating version name to $VERSION_NAME in AndroidManifest.xml"
-
-			sed -i '' 's/versionName="[0-9.]*"/versionName="'$VERSION_NAME'"/' $ANDROID_BUILD_GRADLE
-
-			echo "File content:"
-
-			cat $ANDROID_BUILD_GRADLE
-			fi
+fi
 
 
 
