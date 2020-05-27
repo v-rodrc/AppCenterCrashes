@@ -17,7 +17,7 @@ if [ -e "$ANDROID_BUILD_GRADLE" ]
 then
 	echo "version code:" $VERSION_CODE
 	cat $ANDROID_BUILD_GRADLE
-	echo "Updating version name to $VERSION_CODE in build.gradle file"
+	echo "Updating version code to $VERSION_CODE in build.gradle file"
 
 	# sed command is stream editor,
 	#  -i to edit files in-place instead of printing to standard output
@@ -27,7 +27,7 @@ then
 #[0-9]* matches a sequence of digits of any length
 	#sed -i '' 's/versionCode "[0-9.]*"/versionCode "'$VERSION_CODE'"/' $ANDROID_BUILD_GRADLE
 
-	sed 's/versionCode [0-9a-zA-Z -_]*/versionCode '$((2))'/' ./build.gradle
+	sed 's/versionCode [0-9a-zA-Z -_]*/versionCode '$(($VERSION_CODE))'/' $ANDROID_BUILD_GRADLE
 
 	echo "File content:"
 	cat $ANDROID_BUILD_GRADLE
