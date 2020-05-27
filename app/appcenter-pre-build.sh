@@ -7,7 +7,7 @@ then
 	exit
 fi
 
-ANDROID_BUILD_GRADLE=$APPCENTER_SOURCE_DIRECTORY/build.gradle
+ANDROID_BUILD_GRADLE=$APPCENTER_SOURCE_DIRECTORY/app/build.gradle
 
 #ANDROID_BUILD_GRADLE=/Users/christopherrodriguez/Documents/AppCenterCrashes/app/build.gradle
 
