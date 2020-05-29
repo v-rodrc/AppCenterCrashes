@@ -13,9 +13,9 @@ if [ -e "$ANDROID_BUILD_GRADLE" ]
 then
 	echo "version name:" $VERSION_NAME
 	cat $ANDROID_BUILD_GRADLE
-	echo "Updating version code to $VERSION_NAME in build.gradle file"
+	echo "Updating version name to $VERSION_NAME in build.gradle file"
 
-	sed 's/versionName [0-9a-zA-Z -_]*/versionName '$(($VERSION_NAME))'/' $ANDROID_BUILD_GRADLE
+	sed -i'' 's/versionName [0-9a-zA-Z -_]*/versionName '$("($VERSION_NAME)")'/' $ANDROID_BUILD_GRADLE
 
 	echo "File content:"
 	cat $ANDROID_BUILD_GRADLE
