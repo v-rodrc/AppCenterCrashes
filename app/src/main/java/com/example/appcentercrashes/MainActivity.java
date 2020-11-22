@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button btn;
 
+    //this is the main activity where app center gets initialized
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
